@@ -49,3 +49,14 @@ jobs:
           tags: |
             ghcr.io/${{ env.GHCR_REPOSITORY }}/artifact:${{ env.RELEASE_VERSION }}
             ghcr.io/${{ env.GHCR_REPOSITORY }}/artifact:latest
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          target: unit
+          file: ./Dockerfile
+          push: true
+          tags: |
+            ghcr.io/${{ env.GHCR_REPOSITORY }}/unit:${{ env.RELEASE_VERSION }}
+            ghcr.io/${{ env.GHCR_REPOSITORY }}/unit:latest
