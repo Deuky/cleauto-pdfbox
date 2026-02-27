@@ -1,5 +1,5 @@
-java ?= $(shell type -s java || echo "install-java")
-wget ?= $(shell type -s wget || echo "install-wget")
+java ?= $(shell type java 2> /dev/null || echo "install-java")
+wget ?= $(shell type wget 2> /dev/null || echo "install-wget")
 memory_space ?= 16
 pdfbox_version ?= 3.0.6
 
