@@ -12,5 +12,5 @@ FROM scratch AS artifact
 COPY --from=build /app /artifact
 
 FROM base AS unit
-COPY --from=artifact /app /app
+COPY --from=artifact /artifact /app
 RUN make install
